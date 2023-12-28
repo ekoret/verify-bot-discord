@@ -1,10 +1,17 @@
-import { CommandInteraction, SlashCommandBuilder } from '../../inc/common'
+import DiscordEmbed from '../../inc/DiscordEmbed'
+import { ChatInputCommandInteraction, SlashCommandBuilder } from '../../inc/common'
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('verify')
-		.setDescription('Start the verification process'),
-	async execute(interaction: typeof CommandInteraction) {
+		.setDescription('Start the verification process')
+		.addStringOption((option) =>
+			option.setName('unique_id')
+				.setDescription(`Your unique ID from ${process.env.SITE_NAME}`)
+				.setRequired(true)
+				.setMaxLength(20)
+		),
+	async execute(interaction: ChatInputCommandInteraction) {
 
 		/**
 		 * Add verification process here
@@ -15,6 +22,12 @@ module.exports = {
 		 * - if the user does not exist, send back a message they need to register
 		 */
 
+		const uniqueId = interaction.options.getString('unique_id');
+		const id = interaction.user.id
+		const username = interaction.user.username
+
+		console.log({ id, username, uniqueId })
+
 		try {
 			const result = await fetch(process.env.VERIFY_USER_ENDPOINT as string, {
 				method: 'POST',
@@ -23,10 +36,9 @@ module.exports = {
 					'API-Key': process.env.DB_API_KEY as string
 				},
 				body: JSON.stringify({
-					username: 'ekoret',
-					updates: {
-						email: 'fromds'
-					}
+					id,
+					username,
+					uniqueId
 				})
 			});
 
@@ -38,6 +50,11 @@ module.exports = {
 			console.log(err)
 		}
 
-		await interaction.reply("Verifying..")
+		const embed = new DiscordEmbed('Verifying..', 'Please wait while I verify your account.', 'Author', 'Red', 'Footer').getEmbed()
+
+		await interaction.reply({
+			embeds: [embed],
+			ephemeral: true
+		});
 	},
 };
