@@ -5,7 +5,7 @@ import DiscordDatabaseCRUD from '../inc/DiscordDatabaseCRUD'
 
 declare global {
     interface CustomClient extends Client {
-        commands: Collection<unknown, unknown>;
+        commands: Collection<any, any>;
         discordCRUD: DiscordDatabaseCRUD;
     }
 
