@@ -3,10 +3,12 @@ import { Events, CommandInteraction } from '../inc/common'
 module.exports = {
     name: Events.InteractionCreate,
     once: false,
-    async execute(interaction: typeof CommandInteraction) {
+    async execute(interaction: CommandInteraction) {
         if (!interaction.isChatInputCommand()) return;
 
-        const command = interaction.client.commands.get(interaction.commandName);
+        const customClient = interaction.client as CustomClient;
+
+        const command = customClient.commands.get(interaction.commandName);
 
         if (!command) {
             console.error(

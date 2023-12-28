@@ -1,17 +1,17 @@
-const { EmbedBuilder } = require('discord.js');
+import { EmbedBuilder, ColorResolvable } from 'discord.js'
 
 class DiscordEmbed {
     private title: string;
     private description: string;
     private author: string;
-    private color: string;
+    private color: ColorResolvable;
     private footerText: string;
 
     constructor(
         title: string,
         description: string,
         author: string,
-        color: string,
+        color: ColorResolvable,
         footer_text: string,
     ) {
         this.title = title;
