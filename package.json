@@ -1,0 +1,28 @@
+{
+	"name": "discord-verify-bot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node build/index.js",
+		"build": "rm -rf build && tsc",
+		"watch": "tsc -w",
+		"dev": "nodemon build/index.js",
+		"deploy-commands": "node build/deploy-commands.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/node": "^20.10.5",
+		"nodemon": "^3.0.2",
+		"ts-node": "^10.9.2",
+		"tsx": "^4.6.2",
+		"typescript": "^5.3.3"
+	},
+	"dependencies": {
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.3.1",
+		"mysql2": "^3.6.5"
+	}
+}
