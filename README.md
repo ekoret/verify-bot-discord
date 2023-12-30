@@ -1,23 +1,29 @@
 ## verify-bot-discord
 
-Discord bot made with ts-discord-bot repository.
+Verifier Bot is a Discord bot created to automate user verification with a backend system. For example, this bot is currently implemented to make requests to a backend that handles querying data from the WooCommerce REST API v3. The bots primary function is to authenticate and verify users on the Discord server by cross-referencing a unique ID that users can only obtain by registering on the WordPress site.
 
-### MySQL Container
+### Environment Variables
 
-A docker compose is provided for a simple MySQL container. If you only provide the mandatory environment variables, the container will work right out of the box.
+BOT_TOKEN
+BOT_CLIENT_ID
+SERVER_ID
+DB_API_KEY
 
-### Mandatory environment variables
+VERIFY_USER_ENDPOINT
 
-BOT_TOKEN=  
-BOT_CLIENT_ID=  
-SERVER_ID=
+DB_HOST
+DB_PORT
+DB_USER
+DB_PASSWORD
+DB_NAME
 
-#### Optional environment variables
+SITE_NAME
+SITE_URL
 
-You don't need to specify these environment variables in development. These default values will work right out of the box with the `compose.yaml` config.
+### To Do
 
-DB_HOST=localhost  
-DB_PORT=3306  
-DB_USER=root  
-DB_PASSWORD=password  
-DB_NAME=botdb
+- do we need admin commands?
+- refactor
+- update readme
+- look over error handling again
+- make embeds more pretty
