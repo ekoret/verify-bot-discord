@@ -12,13 +12,13 @@ class DiscordEmbed {
         description: string,
         author: string,
         color: ColorResolvable,
-        footer_text: string,
+        footerText: string = "Need help? Message any administrator or support.",
     ) {
         this.title = title;
         this.description = description;
         this.author = author;
         this.color = color;
-        this.footerText = footer_text;
+        this.footerText = footerText;
     }
 
     getEmbed() {
