@@ -4,20 +4,20 @@ Verifier Bot is a Discord bot created to automate user verification with a backe
 
 ### Environment Variables
 
-BOT_TOKEN
-BOT_CLIENT_ID
-SERVER_ID
+BOT_TOKEN  
+BOT_CLIENT_ID  
+SERVER_ID  
 DB_API_KEY
 
 VERIFY_USER_ENDPOINT
 
-DB_HOST
-DB_PORT
-DB_USER
-DB_PASSWORD
+DB_HOST  
+DB_PORT  
+DB_USER  
+DB_PASSWORD  
 DB_NAME
 
-SITE_NAME
+SITE_NAME  
 SITE_URL
 
 ### To Do
